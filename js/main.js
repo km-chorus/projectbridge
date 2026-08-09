@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================================= */
 
     emailjs.init({
-        publicKey: "H-OBnRdlhUWMwviKP",
+        publicKey: "",
 
         blockHeadless: true,
 
