@@ -1,0 +1,208 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 1rem 0 1.5rem;
+
+    background: #05080d;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   ANIMATED BLUE LIQUID
+========================================= */
+
+.footer-gradient {
+    position: absolute;
+
+    width: 42rem;
+    height: 42rem;
+
+    top: -18rem;
+    right: -8rem;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 93, 255, 0.45) 0%,
+            rgba(20, 93, 255, 0.2) 35%,
+            rgba(20, 93, 255, 0.06) 60%,
+            transparent 75%
+        );
+
+    filter: blur(45px);
+
+    animation:
+        footerLiquidOne 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+.footer-gradient::before,
+.footer-gradient::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+}
+
+
+.footer-gradient::before {
+    width: 28rem;
+    height: 28rem;
+
+    left: -20rem;
+    top: 15rem;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 119, 255, 0.3),
+            transparent 70%
+        );
+
+    animation:
+        footerLiquidTwo 15s ease-in-out infinite alternate;
+}
+
+
+.footer-gradient::after {
+    width: 22rem;
+    height: 22rem;
+
+    right: 20rem;
+    bottom: -15rem;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(16, 87, 255, 0.28),
+            transparent 70%
+        );
+
+    animation:
+        footerLiquidThree 13s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   FOOTER GRID
+========================================= */
+
+.footer-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 4rem 4rem;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   KEEP CONTENT ABOVE EFFECT
+========================================= */
+
+.site-footer .site-container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes footerLiquidOne {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(-5rem, 3rem, 0)
+            scale(1.12);
+    }
+
+    100% {
+        transform:
+            translate3d(-2rem, 7rem, 0)
+            scale(0.95);
+    }
+
+}
+
+
+@keyframes footerLiquidTwo {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate3d(8rem, -5rem, 0)
+            scale(1.2);
+    }
+
+}
+
+
+@keyframes footerLiquidThree {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform:
+            translate3d(-8rem, -4rem, 0);
+    }
+
+}
