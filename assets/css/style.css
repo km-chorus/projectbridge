@@ -89,7 +89,23 @@ a {
     font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.03em;
+    z-index: 1000;
+    
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
 }
+
+.brand img {
+    display: block;
+
+    width: auto;
+    height: 2.5rem;
+
+    object-fit: contain;
+}
+
 
 .desktop-nav {
     display: none;
@@ -132,6 +148,245 @@ a {
     transform: translateY(-0.125rem);
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.12);
 }
+
+
+/* =========================================
+   STICKY NAVIGATION
+========================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Activated when scrolling */
+
+.site-header.scrolled {
+    background: rgba(8, 12, 20, 0.82);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+=======/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobile-menu-toggle {
+    display: none;
+
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+
+    width: 2.75rem;
+    height: 2.75rem;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 1200;
+}
+
+
+.mobile-menu-toggle span {
+    position: absolute;
+
+    left: 50%;
+
+    width: 1.45rem;
+    height: 2px;
+
+    background: #ffffff;
+
+    transform: translateX(-50%);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 0.8rem;
+}
+
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 1.35rem;
+}
+
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 1.9rem;
+}
+
+
+/* =========================================
+   HAMBURGER → CLOSE X
+========================================= */
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    top: 1.35rem;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+}
+
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    top: 1.35rem;
+
+    transform:
+        translateX(-50%)
+        rotate(-45deg);
+}
+
+
+/* =========================================
+   FULLSCREEN MOBILE MENU
+========================================= */
+
+.mobile-menu {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1100;
+
+    background: rgba(7, 11, 18, 0.98);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-1rem);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE BREAKPOINT
+========================================= */
+
+@media (max-width: 768px) {
+
+    .desktop-nav,
+    .nav-cta {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+}
+
+.mobile-menu-inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6rem 2rem 2rem;
+}
+
+
+.mobile-nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.5rem;
+}
+
+
+.mobile-nav a {
+    width: 100%;
+
+    padding: 0.9rem 1rem;
+
+    text-align: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    border-radius: 0.75rem;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.mobile-nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+.mobile-menu-cta {
+    margin-top: 1rem;
+
+    background: #ffffff;
+
+    color: #07111f !important;
+}
+
+
+
+
+
 
 
 /* =========================================
@@ -290,109 +545,73 @@ a {
 }
 
 
-
-
 /* =========================================
-   COMPANY LOGOS
+   HERO SCHOOL LOGOS
 ========================================= */
 
-.logo-showcase {
-    position: relative;
-
-    padding: 3rem 0;
-
-    background: #ffffff;
-}
-
-
-.company-logos {
+.school-logos {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 2.5rem;
+    gap: 1rem;
 
     width: 100%;
+    margin-bottom: 1.75rem;
 }
 
 
-/* =========================================
-   LOGO
-========================================= */
-
-.company-logo {
-    position: relative;
+.school-logo {
+    width: 3rem;
+    height: 3rem;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    min-width: 6rem;
+    background: transparent;
+    border: none;
+    padding: 0;
 
-    padding: 0.75rem;
-
-    cursor: default;
+    animation: schoolLogoBounce 3.5s ease-in-out infinite;
 }
 
 
-.company-logo img {
-    display: block;
+/* Individual animation delays */
 
-    width: auto;
+.school-logo:nth-child(1) {
+    animation-delay: 0s;
+}
 
-    max-width: 50rem;
+.school-logo:nth-child(2) {
+    animation-delay: 0.25s;
+}
 
-    max-height: 8rem;
+.school-logo:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.school-logo:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.school-logo:nth-child(5) {
+    animation-delay: 1s;
+}
+
+
+.school-logo img {
+    width: 100%;
+    height: 100%;
 
     object-fit: contain;
 
-    filter:
-        grayscale(1)
-        opacity(0.35);
+    /* filter: grayscale(100%); */
+    opacity: 0.7;
 
     transition:
         filter 0.3s ease,
+        opacity 0.3s ease,
         transform 0.3s ease;
-}
-
-
-/* =========================================
-   COMPANY NAME
-========================================= */
-
-.company-logo span {
-    position: absolute;
-
-    top: calc(100% + 0.5rem);
-
-    left: 50%;
-
-    transform:
-        translate(-50%, -0.25rem);
-
-    width: max-content;
-
-    color: #16181c;
-
-    font-size: 0.625rem;
-
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    opacity: 0;
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-
-    pointer-events: none;
 }
 
 
@@ -400,21 +619,28 @@ a {
    HOVER
 ========================================= */
 
-.company-logo:hover img {
-    filter:
-        grayscale(0)
-        opacity(1);
+.school-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
 
-    transform:
-        scale(1.05);
+    transform: scale(1.08);
 }
 
 
-.company-logo:hover span {
-    opacity: 1;
+/* =========================================
+   BOUNCE ANIMATION
+========================================= */
 
-    transform:
-        translate(-50%, 0);
+@keyframes schoolLogoBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
 }
 
 
@@ -422,72 +648,19 @@ a {
    MOBILE
 ========================================= */
 
-@media (max-width: 40rem) {
+@media (max-width: 640px) {
 
-    .logo-showcase {
-        padding: 2.25rem 0;
+    .school-logos {
+        gap: 0.65rem;
+        margin-bottom: 1.5rem;
     }
 
-
-    .company-logos {
-        gap: 1.5rem 1.25rem;
-    }
-
-
-    .company-logo {
-        min-width: 5rem;
-
-        padding: 0.5rem;
-    }
-
-
-    .company-logo img {
-        max-width: 50rem;
-
-        max-height: 5rem;
+    .school-logo {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
 }
-
-/* =========================================
-   PROJECTBRIDGE EYEBROW
-========================================= */
-
-.hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    margin-bottom: 2rem;
-
-    color: var(--color-white);
-
-    font-size: 0.75rem;
-    font-weight: 700;
-
-    line-height: 1;
-
-    letter-spacing: 0.3em;
-
-    text-transform: uppercase;
-}
-
-
-/* Green line before PROJECTBRIDGE */
-
-.hero-eyebrow::before {
-    content: "";
-
-    width: 1.75rem;
-    height: 0.125rem;
-
-    flex-shrink: 0;
-
-    background: var(--color-green);
-
-    border-radius: 999rem;
-}
-
 
 /* =========================================
    HERO TITLE

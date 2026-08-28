@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ============================ */
 
                 const whatsappMessage =
-`Hello ProjectBridge,
+`Hello Morningside Systems,
 
 I would like to make an enquiry about your services.
 
@@ -649,5 +649,171 @@ window.addEventListener("load", function () {
         });
 
     }
+
+});
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const header =
+        document.getElementById("siteHeader");
+
+    const menuToggle =
+        document.getElementById("mobileMenuToggle");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const mobileLinks =
+        mobileMenu.querySelectorAll("a");
+
+
+    /* =========================================
+       STICKY NAV SCROLL STATE
+    ========================================= */
+
+    function updateHeader() {
+
+        if (window.scrollY > 40) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    }
+
+
+    updateHeader();
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    function openMobileMenu() {
+
+        mobileMenu.classList.add("active");
+
+        menuToggle.classList.add("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Close navigation"
+        );
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    function closeMobileMenu() {
+
+        mobileMenu.classList.remove("active");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation"
+        );
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow = "";
+    }
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            if (
+                mobileMenu.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeMobileMenu();
+
+            } else {
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       CLOSE AFTER CLICKING LINK
+    ========================================= */
+
+    mobileLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                closeMobileMenu();
+
+            }
+        );
+
+    });
+
+
+    /* =========================================
+       ESCAPE KEY
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                mobileMenu.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
 
 });

@@ -1,3 +1,32 @@
+:root {
+    /* ProjectBridge Brand Colors */
+    --color-green: #16a34a;
+    --color-royal-blue: #2563eb;
+
+    /* Hero Colors */
+    --hero-background: #030712;
+    --hero-blue-dark: #123b9c;
+    --hero-blue-light: #3b82f6;
+
+    /* Neutral Colors */
+    --color-white: #ffffff;
+    --color-black: #0f172a;
+    --color-gray: #64748b;
+
+    /* Layout */
+    --container-width: 75rem;
+    --container-padding: 1.25rem;
+
+    /* Spacing */
+    --section-spacing: 7rem;
+
+    /* Effects */
+    --border-radius: 0.75rem;
+    --transition: 300ms ease;
+}
+
+
+
 /* =========================================
    FAQ SECTION
 ========================================= */
@@ -31,7 +60,7 @@
 .faq-title {
     margin: 1rem 0 0;
 
-    color: #111318;
+    color: var(--color-black);
 
     font-size: clamp(
         2.75rem,
@@ -109,7 +138,7 @@
 
     background: transparent;
 
-    color: #111318;
+    color: var(--color-black);
 
     font-family: inherit;
 
@@ -267,7 +296,7 @@
 
     border-color: var(--primary-blue);
 
-    color: #ffffff;
+    color: var(--color-gray);
 }
 
 
@@ -397,6 +426,141 @@
         gap: 0.75rem;
 
         margin-top: 2.5rem;
+    }
+
+}
+
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+========================================= */
+
+.scroll-top {
+    position: fixed;
+
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    background: rgba(7, 11, 18, 0.95);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(1rem);
+
+    z-index: 99999;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+.scroll-top:hover {
+    background: rgba(7, 11, 18, 1);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   PROGRESS RING
+========================================= */
+
+.scroll-progress {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(-90deg);
+
+    pointer-events: none;
+}
+
+
+.scroll-progress-track {
+    fill: none;
+
+    stroke: rgba(255, 255, 255, 0.15);
+
+    stroke-width: 4;
+}
+
+
+.scroll-progress-bar {
+    fill: none;
+
+    stroke: 
+     #369618;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 282.74;
+    stroke-dashoffset: 282.74;
+}
+
+
+.scroll-top-arrow {
+    position: relative;
+
+    z-index: 2;
+
+    color: #369618;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .scroll-top {
+        right: 1rem;
+        bottom: 1rem;
+
+        width: 3.2rem;
+        height: 3.2rem;
     }
 
 }

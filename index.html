@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Morningside Solutions | Your Project. Our Expertise.</title>
+    <title>Morningside Systems | Your Project. Our Expertise.</title>
 
     <meta
         name="description"
-        content="ProjectBridge helps students with final year projects, research, development, documentation and professional graphic design."
+        content="Morningside helps students with final year projects, research, development, documentation and professional graphic design."
     >
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,30 +46,107 @@
 
     
     <!-- Navigation -->
-    <header class="site-header">
-        <div class="site-container">
-            <nav class="navbar">
+   <header class="site-header" id="siteHeader">
 
-                <a href="index.html" class="brand">
-                   Morningside
-                </a>
+    <div class="site-container">
 
-                <div class="desktop-nav">
-                    <a href="#services">Services</a>
-                    <a href="#approach">Our Approach</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#reviews">Reviews</a>
-                    <a href="#faqs">FAQs</a>
-                    <a href="#about">About</a>
-                </div>
+        <nav class="navbar">
+<a href="index.html" class="brand">
+    <img
+        src="assets/images/MorningsideL.png"
+        alt="ProjectBridge"
+    >
+</a>
 
-                <a href="#contact" class="nav-cta">
-                    Get Started
-                </a>
 
-            </nav>
-        </div>
-    </header>
+            <!-- Desktop Navigation -->
+
+            <div class="desktop-nav">
+
+                <a href="#services">Services</a>
+                <a href="#approach">Our Approach</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faqs">FAQs</a>
+                <a href="#about">About</a>
+
+            </div>
+
+
+            <a href="#contact" class="nav-cta">
+                Get Started
+            </a>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- Mobile Fullscreen Menu -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-hidden="true"
+>
+
+    <div class="mobile-menu-inner">
+
+        <nav class="mobile-nav">
+
+            <a href="#services">Services</a>
+
+            <a href="#approach">
+                Our Approach
+            </a>
+
+            <a href="#portfolio">
+                Portfolio
+            </a>
+
+            <a href="#reviews">
+                Reviews
+            </a>
+
+            <a href="#faqs">
+                FAQs
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a
+                href="#contact"
+                class="mobile-menu-cta"
+            >
+                Get Started
+            </a>
+
+        </nav>
+
+    </div>
+
+</div>
 
 
     <!-- Hero -->
@@ -85,17 +162,51 @@
 
                 <div class="hero-content scroll-fade">
 
-                    <p class="hero-eyebrow">
-                        Morningside
-                    </p>
+                    <div class="hero-eyebrow school-logos">
 
+    <div class="school-logo">
+        <img
+            src="assets/images/kwame-nkrumah-university-of-science-technology-seeklogo.png"
+            alt="School 1"
+        >
+    </div>
+
+    <div class="school-logo">
+        <img
+            src="assets/images/kumasi-technical-university-seeklogo.png"
+            alt="School 2"
+        >
+    </div>
+
+    <div class="school-logo">
+        <img
+            src="assets/images/aamusted.png"
+            alt="School 3"
+        >
+    </div>
+
+    <div class="school-logo">
+        <img
+            src="assets/images/ucc.png"
+            alt="School 4"
+        >
+    </div>
+
+    <div class="school-logo">
+        <img
+            src="assets/images/legon.png"
+            alt="School 5"
+        >
+    </div>
+
+</div>
                     <h1 class="hero-title">
                         Take the hustle off your shoulders.
-                        <span>Focus on submitting.</span>
+                        <span>Focus on what matters.</span>
                     </h1>
 
                     <p class="hero-description">
-                        We help students turn ideas into well-researched,
+                        We help businesses and students turn ideas into well-researched,
                         professionally designed and properly documented projects
                         while you focus on what matters most.
                     </p>
@@ -118,45 +229,6 @@
 
         </section>
 
-<section class="logo-showcase">
-
-    <div class="site-container scroll-fade">
-
-        <div class="company-logos">
-
-            <div class="company-logo">
-                <img
-                    src="assets/images//Logo.png"
-                    alt="Company One"
-                >
-
-                <span>Company One</span>
-            </div>
-
-            <div class="company-logo">
-                <img
-                    src="assets/images//Logo.png"
-                    alt="Company Two"
-                >
-
-                <span>Company Two</span>
-            </div>
-
-            <div class="company-logo">
-                <img
-                    src="assets/images/Logo.png"
-                    alt="Company Three"
-                >
-
-                <span>Company Three</span>
-            </div>
-
-           
-
-    </div>
-
-</section>
-        
         <!-- Placeholder sections for the next stages -->
 
         <section id="services" class="services-section">
@@ -584,8 +656,8 @@
             <div class="portfolio-featured-image">
 
                 <img
-                    src="assets/images/Square_Signboard_Mockup_2.jpg"
-                    alt="AttendX attendance tracking application"
+                    src="assets/images/Capture.PNG"
+                    alt="Eduscan Pro attendance tracking application"
                 >
 
                 <div class="portfolio-featured-number">
@@ -858,7 +930,8 @@
                         controls
                         playsinline
                         preload="metadata"
-                        poster="assets/images/reviews/review-01.jpg"
+                        poster="assets/images/playb.png"
+                        autoplay
                     >
 
                         <source
@@ -900,7 +973,7 @@
 
                     data-video="assets/reviews/review1.mp4"
 
-                    data-poster="assets/images/reviews/review-01.jpg"
+                    data-poster="assets/reviews/review1.mp4"
 
                     data-name="Client"
 
@@ -947,7 +1020,7 @@
                     type="button"
                     class="review-thumbnail"
 
-                    data-video="assets/videos/review-02.mp4"
+                    data-video="assets/reviews/lv_0_20260827151540.mp4"
 
                     data-poster="assets/images/reviews/review-02.jpg"
 
@@ -962,11 +1035,11 @@
                             muted
                             playsinline
                             preload="metadata"
-                            poster="assets/images/reviews/review-02.jpg"
+                            poster="assets/images/playb.png"
                         >
 
                             <source
-                                src="assets/videos/review-02.mp4"
+                                src="assets/reviews/lv_0_20260827151540.mp4"
                                 type="video/mp4"
                             >
 
@@ -996,13 +1069,13 @@
                     type="button"
                     class="review-thumbnail"
 
-                    data-video="assets/videos/review-03.mp4"
+                    data-video="assets/videos/reviews/lv_0_20260827151540.mp4"
 
                     data-poster="assets/images/reviews/review-03.jpg"
 
-                    data-name="Michael Doe"
+                    data-name="Client"
 
-                    data-service="Project Documentation"
+                    data-service="Diana"
                 >
 
                     <div class="thumbnail-video">
@@ -1015,7 +1088,7 @@
                         >
 
                             <source
-                                src="assets/videos/review-03.mp4"
+                                src="assets/reviews/lv_0_20260827151540.mp4"
                                 type="video/mp4"
                             >
 
@@ -1079,7 +1152,7 @@
                     </span>
 
                     <span class="faq-question-text">
-                        What kind of projects does ProjectBridge handle?
+                        What kind of projects does Morningside handle?
                     </span>
 
                     <span class="faq-plus">
@@ -1284,7 +1357,7 @@
                     </span>
 
                     <span class="faq-question-text">
-                        How do I get started with ProjectBridge?
+                        How do I get started with Morningside?
                     </span>
 
                     <span class="faq-plus">
@@ -1410,7 +1483,7 @@
 
                     <img
                         src="assets/images/1775257653040.jpg"
-                        alt="Founder of ProjectBridge"
+                        alt="Founder of Morningside"
                     >
 
                 </div>
@@ -1429,7 +1502,7 @@
 
                     <p class="founder-description">
 
-                        ProjectBridge was created with a simple belief:
+                        Morningside was created with a simple belief:
                         students should have access to the right
                         technical support, guidance and expertise when
                         turning their ideas into real projects.
@@ -1441,7 +1514,7 @@
 
                         As a
                         <a
-                            href="#"
+                            href="https://vm.tiktok.com/ZS9BNq9ncqhav/-Qxnkk/"
                             class="founder-link"
                         >
                             Skills Instructor at The Rock Impact Network
@@ -1468,7 +1541,7 @@
 
                         My experience across technology, design,
                         training and project development led to the
-                        creation of ProjectBridge — a platform built to
+                        creation of Morningside — a platform built to
                         help students move from an idea to a project
                         they can confidently submit and present.
 
@@ -1478,7 +1551,7 @@
 
 
                 <div class="founder-signature">
-                    ProjectBridge
+                    Morningside
                 </div>
 
             </div>
@@ -1546,8 +1619,8 @@
                         Email
                     </span>
 
-                    <a href="mailto:projectbridge@gmail.com">
-                        projectbridge@gmail.com
+                    <a href="mailto:contact@morningsidesystems.com">
+                        contact@morningsidesystems.com
                     </a>
                 </div>
 
@@ -1706,8 +1779,11 @@
 
             <div class="footer-brand">
 
-                <a href="index.html" class="footer-logo">
-                    ProjectBridge
+                <a href="index.html" class="brand">
+                     <img
+                        src="assets/images/MorningsideL.png"
+                        alt="ProjectBridge"
+                     >
                 </a>
 
                 <p class="footer-description">
@@ -1806,8 +1882,8 @@
                         Book a Call
                     </a>
 
-                    <a href="mailto:projectbridge@gmail.com">
-                        projectbridge@gmail.com
+                    <a href="mailto:contact@morningsidesystems.com">
+                        contact@morningsidesystems.com
                     </a>
 
                     <a href="tel:+233556556080">
@@ -1824,7 +1900,7 @@
         <div class="footer-bottom">
 
             <p>
-                © 2026 ProjectBridge | CHORUS. All rights reserved.
+                © 2026 Morningside Systems | CHORUS. All rights reserved.
             </p>
 
             <div class="footer-bottom-links">
@@ -1833,7 +1909,7 @@
                     Privacy Policy
                 </a>
 
-                <a href="#">
+                <a href="terms.html">
                     Terms of Service
                 </a>
 
@@ -1846,7 +1922,7 @@
 </footer>
     <script src="js/main.js"></script>
     <script src="js/faq.js"></script>
-
+    <script src="js/top.js"></script>
 
 
     <!-- Form Status Modal -->
@@ -1881,7 +1957,38 @@
 
 </div>
 
+<!-- Scroll To Top -->
+<button
+    class="scroll-top"
+    id="scrollTop"
+    type="button"
+    aria-label="Scroll to top"
+>
+    <svg
+        class="scroll-progress"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+    >
+        <circle
+            class="scroll-progress-track"
+            cx="50"
+            cy="50"
+            r="45"
+        ></circle>
 
+        <circle
+            class="scroll-progress-bar"
+            id="scrollProgressBar"
+            cx="50"
+            cy="50"
+            r="45"
+        ></circle>
+    </svg>
+
+    <span class="scroll-top-arrow">
+        ↑
+    </span>
+</button>
 
 
 </body>
