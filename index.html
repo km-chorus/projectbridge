@@ -10,7 +10,7 @@
         name="description"
         content="Morningside helps students with final year projects, research, development, documentation and professional graphic design."
     >
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -32,7 +32,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
+    <link rel="shortcut icon" href="assets/images/Morningside .png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/services.css">
     <link rel="stylesheet" href="assets/css/footer.css">
@@ -41,6 +41,67 @@
 </head>
 
 <body>
+
+
+
+<!-- First Visit Promotion Toast -->
+<div class="promo-toast" id="promoToast">
+    <button class="promo-close" id="promoClose" aria-label="Close promotion">
+        &times;
+    </button>
+
+    <div class="promo-image">
+        <img src="assets/images/Fyp.png" alt="Featured Product">
+    </div>
+
+    <div class="promo-content">
+        <span class="promo-limited">LIMITED OFFER</span>
+
+        <h3>FINAL PROJECT ONLINE MASTERCLASS</h3>
+
+       <p>
+    Discover this exclusive resource designed to help you learn,
+    build practical skills, and take your projects to the next level.
+    Get instant access today and start learning at your own pace.
+    Limited availability, so don't miss the opportunity.
+    </p>
+
+        <div class="promo-countdown">
+            <div>
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+
+            <div>
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+
+            <div>
+                <strong id="minutes">00</strong>
+                <span>Min</span>
+            </div>
+
+            <div>
+                <strong id="seconds">00</strong>
+                <span>Sec</span>
+            </div>
+        </div>
+
+        <a
+            href="https://selar.com/2s7j01me7t"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="promo-button"
+        >
+            Get It Now
+        </a>
+    </div>
+</div>
+
+
+
+
 
 
 
@@ -656,8 +717,8 @@
             <div class="portfolio-featured-image">
 
                 <img
-                    src="assets/images/Capture.PNG"
-                    alt="Eduscan Pro attendance tracking application"
+                    src="assets/images/gocart.png"
+                    alt="GoCart ecommerce website"
                 >
 
                 <div class="portfolio-featured-number">
@@ -676,32 +737,33 @@
                     </span>
 
                     <span>
-                        Mobile Application
+                       Ecommerce Website
                     </span>
 
                 </div>
 
 
                 <h3>
-                    AttendX
+                 Gocart
                 </h3>
 
 
                 <p>
-                    A modern attendance tracking application designed
-                    to simplify how attendance is recorded and managed
-                    within academic environments.
-                </p>
+                   GoCart is a modern e-commerce platform designed to make online shopping simple, seamless, and convenient.
+                    It provides users with an intuitive experience for discovering products, viewing details, and managing their shopping cart.
+                    Built with modern web technologies, GoCart delivers a responsive and engaging shopping experience across devices.
+
+                
 
 
                 <div class="portfolio-tags">
 
                     <span>
-                        Attendance
+                       Ecommerce
                     </span>
 
                     <span>
-                        Mobile App
+                      Web App
                     </span>
 
                     <span>
@@ -712,7 +774,7 @@
 
 
                 <a
-                    href="#"
+                    href="https://gocart-chi-ten.vercel.app/"
                     class="portfolio-project-link"
                 >
                     View Project
@@ -740,7 +802,7 @@
                 <div class="portfolio-project-image">
 
                     <img
-                        src="assets/images/portfolio/project-two.jpg"
+                        src="assets/images/rent.jpg"
                         alt="Web development project"
                     >
 
@@ -762,13 +824,25 @@
                     </div>
 
                     <h3>
-                        Digital Experience
+                       Web Application
                     </h3>
 
                     <p>
-                        A modern web solution focused on usability,
-                        structure and a polished digital experience.
+                       A modern car rental platform that makes it easy to discover, compare, and book vehicles online.
+                    Designed with a clean, responsive interface for a smooth experience across all devices.
+
                     </p>
+                    <a
+                    href="https://km-chorus.github.io/rent-a-ride/"
+                    class="portfolio-project-link"
+                >
+                  <h5 style="color: black;">View Project</h5>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
 
                 </div>
 
@@ -782,7 +856,7 @@
                 <div class="portfolio-project-image">
 
                     <img
-                        src="assets/images/portfolio/project-three.jpg"
+                        src="assets/images/preview.jpg"
                         alt="Final year student project"
                     >
 
@@ -808,9 +882,21 @@
                     </h3>
 
                     <p>
-                        A complete student project developed from research
-                        and planning through development and documentation.
-                    </p>
+                        cLearn is a modern e-learning platform designed to make education more accessible, engaging, and flexible.
+                        It connects learners with quality courses, learning resources, and interactive educational content.
+                        cLearn empowers students to learn at their own pace, anytime and anywhere.
+
+                    <a
+                    href="https://clearn-qk7t.vercel.app/"
+                    class="portfolio-project-link"
+                >
+                   <h5 style="color: black;">View Project</h5>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
 
                 </div>
 
@@ -824,7 +910,7 @@
                 <div class="portfolio-project-image">
 
                     <img
-                        src="assets/images/Square_Signboard_Mockup_2.jpg"
+                        src="assets/images/visualid.jpg"
                         alt="Graphic design project"
                     >
 
@@ -854,6 +940,17 @@
                         clearly and create a strong visual presence.
                     </p>
 
+                    <a
+                    href="#"
+                    class="portfolio-project-link"
+                >
+                    <h5 style="color: black;">View Project</h5>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
                 </div>
 
             </article>
@@ -1024,9 +1121,9 @@
 
                     data-poster="assets/images/reviews/review-02.jpg"
 
-                    data-name="Jane Doe"
+                    data-name="Client"
 
-                    data-service="Web Development"
+                    data-service="Obed"
                 >
 
                     <div class="thumbnail-video">
@@ -1462,7 +1559,7 @@
                 <div class="founder-gallery-image founder-image-three">
 
                     <img
-                        src="assets/images"
+                        src="assets/images/20260412_182554.jpg"
                         alt="Founder working in technology"
                     >
 
@@ -1924,38 +2021,6 @@
     <script src="js/faq.js"></script>
     <script src="js/top.js"></script>
 
-
-    <!-- Form Status Modal -->
-<div id="formModal" class="form-modal" aria-hidden="true">
-
-    <div class="form-modal-overlay"></div>
-
-    <div
-        class="form-modal-content"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="formModalTitle"
-    >
-
-       
-        <div class="form-modal-icon" id="formModalIcon">
-            ✓
-        </div>
-
-        <h3 id="formModalTitle">
-            We've received your message.
-        </h3>
-
-        <p id="formModalMessage">
-            Your project request has been received.We've send an email.
-            We'll review the details and continue the
-            conversation with you on WhatsApp.
-        </p>
-
- 
-    </div>
-
-</div>
 
 <!-- Scroll To Top -->
 <button

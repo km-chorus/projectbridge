@@ -1,7 +1,7 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form =
-        document.getElementById("projectForm");
+    const form = document.getElementById("projectForm");
 
     if (!form) {
         return;
@@ -9,337 +9,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================
-       EMAILJS
+       CONTACT FORM → WHATSAPP
     ========================================= */
 
-    emailjs.init({
-        publicKey: "",
+    form.addEventListener("submit", function (event) {
 
-        blockHeadless: true,
-
-        limitRate: {
-            id: "projectbridge-form",
-            throttle: 10000
-        }
-    });
+        /*
+         * Prevent the form from refreshing
+         * or submitting to a server.
+         */
+        event.preventDefault();
+        event.stopPropagation();
 
 
-    /* =========================================
-       SUBMISSION RESTRICTION
-    ========================================= */
+        /* =====================================
+           GET FORM VALUES
+        ===================================== */
 
-    const submittedEmails =
-        JSON.parse(
-            localStorage.getItem(
-                "projectBridgeSubmittedEmails"
-            ) || "[]"
-        );
+        const name =
+            document.getElementById("name")?.value.trim() || "";
 
+        const phone =
+            document.getElementById("phone")?.value.trim() || "";
 
-    function normalizeEmail(email) {
+        const email =
+            document.getElementById("email")?.value.trim() || "";
 
-        return email
-            .trim()
-            .toLowerCase();
+        const service =
+            document.getElementById("service")?.value.trim() || "";
 
-    }
-
-
-    function hasSubmitted(email) {
-
-        const normalizedEmail =
-            normalizeEmail(email);
-
-        return submittedEmails.includes(
-            normalizedEmail
-        );
-
-    }
+        const message =
+            document.getElementById("message")?.value.trim() || "";
 
 
-    function saveSubmittedEmail(email) {
-
-        const normalizedEmail =
-            normalizeEmail(email);
+        /* =====================================
+           VALIDATION
+        ===================================== */
 
         if (
-            !submittedEmails.includes(
-                normalizedEmail
-            )
+            !name ||
+            !phone ||
+            !email ||
+            !service ||
+            !message
         ) {
 
-            submittedEmails.push(
-                normalizedEmail
+            alert(
+                "Please complete all required fields before sending your request."
             );
 
-            localStorage.setItem(
-                "projectBridgeSubmittedEmails",
-                JSON.stringify(
-                    submittedEmails
-                )
-            );
-
-        }
-
-    }
-
-
-    /* =========================================
-       ELEMENTS
-    ========================================= */
-
-    const submitButton =
-        form.querySelector(".form-submit");
-
-    const modal =
-        document.getElementById("formModal");
-
-    const modalIcon =
-        document.getElementById("formModalIcon");
-
-    const modalTitle =
-        document.getElementById("formModalTitle");
-
-    const modalMessage =
-        document.getElementById("formModalMessage");
-
-    const modalButton =
-        document.getElementById("formModalButton");
-
-    const modalClose =
-        document.getElementById("formModalClose");
-
-    const modalOverlay =
-        modal.querySelector(
-            ".form-modal-overlay"
-        );
-
-
-    /* =========================================
-       OPEN MODAL
-    ========================================= */
-
-    function openModal(
-        type,
-        title,
-        message
-    ) {
-
-        modal.classList.remove(
-            "error"
-        );
-
-
-        if (type === "error") {
-
-            modal.classList.add(
-                "error"
-            );
-
-            modalIcon.textContent = "!";
-
-        } else {
-
-            modalIcon.textContent = "✓";
-
+            return;
         }
 
 
-        modalTitle.textContent =
-            title;
-
-        modalMessage.textContent =
-            message;
-
-
-        modal.classList.add(
-            "active"
-        );
-
-        modal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        document.body.style.overflow =
-            "hidden";
-
-    }
-
-
-    /* =========================================
-       CLOSE MODAL
-    ========================================= */
-
-    function closeModal() {
-
-        modal.classList.remove(
-            "active"
-        );
-
-        modal.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-
-    modalClose.addEventListener(
-        "click",
-        closeModal
-    );
-
-
-    modalOverlay.addEventListener(
-        "click",
-        closeModal
-    );
-
-
-    /* =========================================
-       FORM SUBMISSION
-    ========================================= */
-
-    form.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-            event.stopImmediatePropagation();
-
-
-            /* ================================
-               GET EMAIL
-            ================================= */
-
-            const emailInput =
-                document.getElementById(
-                    "email"
-                );
-
-
-            const email =
-                normalizeEmail(
-                    emailInput.value
-                );
-
-
-            /* ================================
-               CHECK PREVIOUS SUBMISSION
-            ================================= */
-
-            if (
-                hasSubmitted(email)
-            ) {
-
-                openModal(
-                    "error",
-                    "Request Already Received",
-                    "A project request has already been submitted using this email address. If you need to make another enquiry, please contact us directly on WhatsApp."
-                );
-
-
-                submitButton.disabled =
-                    false;
-
-                submitButton.textContent =
-                    "Send Project Request";
-
-
-                return;
-
-            }
-
-
-            /* ================================
-               BUTTON
-            ================================= */
-
-            submitButton.disabled =
-                true;
-
-            submitButton.textContent =
-                "Sending Request...";
-
-
-            /* ================================
-               SEND EMAIL
-            ================================= */
-
-            emailjs.sendForm(
-
-                "service_k2oh989",
-
-                "template_i0u3mxb",
-
-                form
-
-            )
-
-            .then(function (response) {
-
-                console.log(
-                    "Email sent successfully:",
-                    response
-                );
-
-
-                /* ============================
-                   SAVE EMAIL
-                ============================ */
-
-                saveSubmittedEmail(
-                    email
-                );
-
-
-                /* ============================
-                   GET FORM VALUES
-                ============================ */
-
-                const name =
-                    document.getElementById(
-                        "name"
-                    )
-                    .value
-                    .trim();
-
-
-                const phone =
-                    document.getElementById(
-                        "phone"
-                    )
-                    .value
-                    .trim();
-
-
-                const service =
-                    document.getElementById(
-                        "service"
-                    )
-                    .value;
-
-
-                const message =
-                    document.getElementById(
-                        "message"
-                    )
-                    .value
-                    .trim();
-
-
-                /* ============================
-                   WHATSAPP
-                ============================ */
-
-                const whatsappMessage =
+        /* =====================================
+           WHATSAPP MESSAGE
+        ===================================== */
+
+        const whatsappMessage =
 `Hello Morningside Systems,
 
 I would like to make an enquiry about your services.
@@ -358,101 +85,33 @@ ${message}
 Thank you.`;
 
 
-                const whatsappURL =
-                    "https://wa.me/233556556080?text=" +
-                    encodeURIComponent(
-                        whatsappMessage
-                    );
+        /* =====================================
+           WHATSAPP URL
+        ===================================== */
+
+        const whatsappURL =
+            "https://wa.me/233556556080?text=" +
+            encodeURIComponent(
+                whatsappMessage
+            );
 
 
-                /* ============================
-                   SUCCESS MODAL
-                ============================ */
+        /* =====================================
+           OPEN WHATSAPP
+        ===================================== */
 
-                openModal(
-                    "success",
-                    "We've received your message.",
-                    "Your project request has been received. We'll review the details and continue the conversation with you on WhatsApp."
-                );
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
 
-
-                submitButton.textContent =
-                    "Request Received";
-
-
-                /* ============================
-                   CONTINUE BUTTON
-                ============================ */
-
-                modalButton.onclick =
-                    function () {
-
-                        window.location.href =
-                            whatsappURL;
-
-                    };
-
-
-                /* ============================
-                   AUTOMATIC WHATSAPP
-                ============================ */
-
-                setTimeout(
-                    function () {
-
-                        window.location.href =
-                            whatsappURL;
-
-                    },
-                    3000
-                );
-
-            })
-
-
-            /* =================================
-               ERROR
-            ================================= */
-
-            .catch(function (error) {
-
-                console.error(
-                    "EmailJS error:",
-                    error
-                );
-
-
-                /* ============================
-                   ERROR MODAL
-                ============================ */
-
-                openModal(
-                    "error",
-                    "Something went wrong.",
-                    "We couldn't send your project request. Please try again or contact us directly on WhatsApp."
-                );
-
-
-                submitButton.disabled =
-                    false;
-
-                submitButton.textContent =
-                    "Send Project Request";
-
-
-                modalButton.onclick =
-                    function () {
-
-                        closeModal();
-
-                    };
-
-            });
-
-        }
-    );
+    });
 
 });
+
+
+
+    
 
 
 
